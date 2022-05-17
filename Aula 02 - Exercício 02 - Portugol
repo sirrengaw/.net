@@ -1,0 +1,19 @@
+programa
+{
+	funcao inicio()
+	{
+		escreva("===============================================\n")
+		escreva("=== CALCULO DE AREA E PERIMETRO DE QUADRADO ===\n")
+		escreva("===============================================\n")
+		inteiro lado, area, perimetro
+		escreva("Digite o valor do lado do quadrado: ")
+		leia(lado)
+		area = lado * lado
+		perimetro = lado * 4
+		escreva("===============================================\n")
+		escreva("=============== R E S U L T A D O =============\n")
+		escreva("===============================================\n")
+		escreva("A área do quadrado é: ",area," m2\n")
+		escreva("O perímetro é : ",perimetro," m\n")
+	}
+}

@@ -2,10 +2,10 @@ programa
 {
 	funcao inicio()
 	{
+		real lado, area, perimetro
 		escreva("===============================================\n")
 		escreva("=== CALCULO DE AREA E PERIMETRO DE QUADRADO ===\n")
 		escreva("===============================================\n")
-		inteiro lado, area, perimetro
 		escreva("Digite o valor do lado do quadrado: ")
 		leia(lado)
 		area = lado * lado

@@ -1,7 +1,8 @@
 programa
 {
+	inclua biblioteca Matematica-->m
 	funcao inicio()
-	{
+	{	
 		cadeia nome
 		real nota1, nota2, nota3, nota4, media
 		escreva("=================================\n")
@@ -19,8 +20,8 @@ programa
 		leia(nota4)
 		media = (nota1 + nota2 + nota3 + nota4)/4
 		escreva("=================================\n")
-		escreva("======== R E S U L T A D O ======\n")
+		escreva("======= R E S U L T A D O =======\n")
 		escreva("=================================\n")
-		escreva("A média do aluno ",nome," é: ",media)
+		escreva("A média do aluno ",nome," é: ",m.arredondar(media, 2))	
 	}
 }

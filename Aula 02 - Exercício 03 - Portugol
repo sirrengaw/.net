@@ -2,11 +2,11 @@ programa
 {
 	funcao inicio()
 	{
+		cadeia nome
+		real nota1, nota2, nota3, nota4, media
 		escreva("=================================\n")
 		escreva("=== CALCULO DE MÉDIA DO ALUNO ===\n")
 		escreva("=================================\n")
-		cadeia nome
-		real nota1, nota2, nota3, nota4, media
 		escreva("Digite o nome do Aluno: ")
 		leia(nome)
 		escreva("Digite a nota 01: ")

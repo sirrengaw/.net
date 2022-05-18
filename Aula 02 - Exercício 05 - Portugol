@@ -1,0 +1,27 @@
+programa
+{
+	inclua biblioteca Matematica	--> m
+	
+	funcao inicio()
+	{
+		real nota1, nota2, nota3, media
+		escreva("=======================================\n")
+		escreva("====== VERIFICACAO DE NOTAS ======\n")
+		escreva("=======================================\n")
+		escreva("Digite a primeira nota: ")
+		leia(nota1)
+		escreva("Digite a segunda nota: ")
+		leia(nota2)
+		escreva("Digite a terceira nota: ")
+		leia(nota3)
+		media = (nota1 + nota2 + nota3) / 3.0
+		media = m.arredondar(media, 2) //arredonda a media para 2 casas apos o ponto
+		se (media < 70.0){
+			escreva("REPROVADO! A sua média foi: ", media)
+		}
+		senao
+		{
+			escreva("APROVADO! A sua média foi: ", media)
+		}
+	}
+}

@@ -1,0 +1,19 @@
+programa
+{	
+	funcao inicio()
+	{
+		inteiro numero
+		escreva("=======================================\n")
+		escreva("====== VERIFICACAO DE NUMERO PAR ======\n")
+		escreva("=======================================\n")
+		escreva("Digite UM numero: ")
+		leia(numero)
+		se (numero % 2 == 0){
+			escreva("O Número digitado é PAR!")
+		}
+		senao
+		{
+			escreva("O Número é IMPAR!")
+		}
+	}
+}

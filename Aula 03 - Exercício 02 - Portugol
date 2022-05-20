@@ -1,0 +1,33 @@
+programa
+{
+	inclua biblioteca Matematica --> m	
+	funcao inicio()
+	{
+		real altura, peso, imc
+		cadeia nome
+		escreva("====================================\n")
+		escreva("======= Calculadora de IMC =========\n")
+		escreva("====================================\n")
+		escreva("Qual o seu nome? Digite: ")
+		leia(nome)
+		escreva(nome,", Qual a sua altura? Digite: ")
+		leia(altura)
+		escreva(nome,", Qual o seu peso? Digite: ")
+		leia(peso)
+		imc = m.arredondar((peso / (altura*altura)),2)
+		escreva("====================================\n")
+		escreva("======== R E S U L T A D O =========\n")
+		escreva("====================================\n")
+		se (imc < 20){
+			escreva(nome,", o seu IMC é: ",imc,", Você está ABAIXO DO PESO.\n")			
+		}senao se ((imc >=20) e (imc <25)){
+			escreva(nome,", o seu IMC é: ",imc,", Você está no PESO IDEAL.\n")	
+		}senao se ((imc >=25) e (imc <30)){
+			escreva(nome,", o seu IMC é: ",imc,", Você está ACIMA DO PESO.\n")		
+		}senao se ((imc >=30) e (imc <35)){
+			escreva(nome,", o seu IMC é: ",imc,", Você está com OBESIDADE.\n")	
+		}senao{
+			escreva(nome,", o seu IMC é: ",imc,", Você está com OBESIDADE MORBIDA.\n")	
+		}
+	}
+}

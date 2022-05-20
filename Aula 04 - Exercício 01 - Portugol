@@ -1,0 +1,41 @@
+programa
+{
+	
+inclua biblioteca Matematica --> m
+	funcao inicio()
+	{
+		inteiro opcao
+		real salarioNovo=0.0, aumento
+		escreva("REAJUSTE DE SALARIO\n")
+		escreva("Qual é o seu cargo?\n")
+		escreva("| 1-Serviços Gerais | 2-Vigia | 3-Recepcionista | 4-Vendedor |\n")
+		escreva("Digite: ")
+		leia(opcao)
+		escolha(opcao){
+			caso 1:
+				salarioNovo = 1024 * 1.50//50% de aumento no salario
+				aumento = salarioNovo - 1024
+				escreva("Você recebeu um aumento de R$ ",m.arredondar(aumento, 2)," , o seu novo salario é R$ ",m.arredondar(salarioNovo, 2))
+			pare
+			caso 2:
+				salarioNovo = 1024 * 1.30//30% de aumento no salario
+				aumento = salarioNovo - 1024
+				escreva("Você recebeu um aumento de R$ ",m.arredondar(aumento, 2)," , o seu novo salario é R$ ",m.arredondar(salarioNovo, 2))
+			pare
+			caso 3:
+				salarioNovo = 1024 * 1.25//25% de aumento no salario
+				aumento = salarioNovo - 1024
+				escreva("Você recebeu um aumento de R$ ",m.arredondar(aumento, 2)," , o seu novo salario é R$ ",m.arredondar(salarioNovo, 2))
+			pare
+			caso 4:
+				salarioNovo = 1024 * 1.15//15% de aumento no salario
+				aumento = salarioNovo - 1024
+				escreva("Você recebeu um aumento de R$ ",m.arredondar(aumento, 2)," , o seu novo salario é R$ ",m.arredondar(salarioNovo, 2))
+			pare
+			caso contrario:
+				limpa()
+				escreva("Você digitou uma opcao errada, verifique!\n")
+				inicio()	
+		}
+	}
+}

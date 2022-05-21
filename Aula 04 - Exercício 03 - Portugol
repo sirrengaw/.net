@@ -3,7 +3,7 @@ programa
 	funcao inicio()
 	{
 		real numero = -1.0, contador = 0.0
-		enquanto (numero != 0){
+		enquanto (numero != 0.0){
 		escreva("Digite um numero: ")
 		leia(numero)
 			se (numero >= 100.0 e numero <= 300.0){

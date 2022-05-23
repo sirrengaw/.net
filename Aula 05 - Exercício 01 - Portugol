@@ -1,0 +1,26 @@
+programa
+{
+	funcao inicio()
+	{
+		inteiro num, a=0, b=0
+
+		escreva("Digite um numero de termos menor que 40 para ver a sequencia de Fibonacci: ")
+		leia(num)
+		se (num > 40 ou num < 0){
+			escreva("Numero Incorreto!\n")
+			inicio()
+		}senao{
+		para (inteiro i = 1; i <= num ; i++){
+			se ( i == 1){
+				a = 1
+				b = 0
+			}
+			senao{
+				a += b
+				b = a - b
+			}
+			escreva(a,", ")
+		}
+		}
+	}
+}

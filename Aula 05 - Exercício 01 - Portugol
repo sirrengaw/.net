@@ -19,7 +19,11 @@ programa
 				a += b
 				b = a - b
 			}
-			escreva(a,", ")
+			se (i != num){
+				escreva(a,", ")
+			}senao{
+				escreva(a)
+			}
 		}
 		}
 	}

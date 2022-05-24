@@ -1,0 +1,38 @@
+programa
+{
+	
+	funcao inicio()
+	{
+		inteiro num, i
+		inteiro vetor[9] = {6,9,7,5,8,15,17,23,0}
+		escreva("ALGORITMO DE BUSCA SEQUENCIAL\n")
+		escreva("Digite um numero para verificar se existe no vetor: ")
+		leia(num)
+
+		//Solução do Wag
+		para(i = 0; i < 9; i++)
+		se (vetor[i] == num){
+			escreva("O número ",num," foi encontrado na posição ",i," do vetor.\n")
+			i = 9
+		}
+		se (i == 9){
+			escreva("O número não existe no vetor!\n")
+		}
+
+		//Solução do Proff
+		i = 0
+		logico achei = falso
+		enquanto((i < 9) e (achei == falso)){
+			se (num == vetor[i]){
+				achei = verdadeiro
+			}senao{
+				i++
+			}
+		}
+		se (achei == verdadeiro){
+				escreva("O número ",num," foi encontrado na posição ",i," do vetor.\n")
+		}senao{
+				escreva("O número não existe no vetor!")
+			}
+	}
+}

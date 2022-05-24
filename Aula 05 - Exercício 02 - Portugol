@@ -1,0 +1,15 @@
+programa
+{
+	funcao inicio()
+	{
+		inteiro vetor[3]
+		para (inteiro i = 0;i < 3; i++){
+			escreva("Digite o " ,i+1,"º numero: ")
+			leia(vetor[i])
+		}
+		escreva("Os números digitados foram: ")
+		para (inteiro i = 0;i < 3; i++){
+		escreva(vetor[i]," ")
+		}
+	}
+}

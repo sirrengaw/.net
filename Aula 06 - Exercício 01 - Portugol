@@ -1,0 +1,25 @@
+//Bubble Sort Method
+programa
+{
+	funcao inicio()
+	{
+		inteiro vetor[10] = {5,4,9,7,3,10,8,2,6,1}
+		inteiro numTemp
+		escreva("SEQUENCIA INICIAL: {5,4,9,7,3,10,8,2,6,1} \n")
+		escreva("APLICANDO O MÉTODO BUBBLE SORT\n")
+		
+		para (inteiro i=0;i<10;i++){
+			para(inteiro j=0;j<9;j++){
+				//Verifica se o numero anterior é maior que o posterior e inverter a posicao.
+				se (vetor[j] > vetor[j+1]){
+				numTemp = vetor[j] // coloca o numero da posicao anterior em uma variavel temporaria
+				vetor[j] = vetor[j+1]
+				vetor[j+1] = numTemp
+				}
+			}
+		}
+		para (inteiro i = 0;i<10;i++){
+		escreva(vetor[i]," ")
+		}
+	}
+}

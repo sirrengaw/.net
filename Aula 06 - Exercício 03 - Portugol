@@ -1,0 +1,30 @@
+programa
+{
+	funcao inicio()
+	{
+		logico achei = falso
+		inteiro num,i=0,j=0,l=0,c=0
+		inteiro matriz[3][3] = {{6,3,7},{9,8,5},{2,18,15}}
+		escreva("ALGORITMO DE BUSCA SEQUENCIAL\n")
+		escreva("Digite um numero para verificar se existe na matriz: ")
+		leia(num)
+
+		//Solução do Wag
+		para(i = 0; i < 3; i++){
+			para(j = 0; j < 3; j++){
+				se (matriz[i][j] == num){
+					achei = verdadeiro
+					l = i
+					c = j
+					i = 3
+					j = 3
+				}
+			}	
+		}
+		se (achei == verdadeiro){
+				escreva("O número ",num," foi encontrado na posição [",l," ",c,"] do vetor.\n")
+		}senao{
+				escreva("O número não existe no vetor!")
+		}
+	}
+}

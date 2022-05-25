@@ -1,0 +1,31 @@
+programa
+{	
+	funcao inicio()
+	{			
+		logico res = falso
+		inteiro num, menor=0, meio=0, maior=8 //maior = tamanho do vetor -1
+		inteiro vetor[9] = {12,21,34,47,59,62,77,83,99}
+		escreva("ALGORITMO DE BUSCA BINARIA\n")
+		escreva("Digite um numero para verificar se existe no vetor: ")
+		leia(num)
+		enquanto(menor <= maior){
+			meio = (maior + menor) / 2
+
+			//Se o numero for grande, ignora a metade do lado esquerdo
+			se (vetor[meio] < num){
+				menor = meio + 1
+			}
+			//Se o numero for pequeno, ignora a metade do lado direito
+			senao se (vetor[meio] > num){
+				maior = meio - 1
+			}senao{
+				escreva("O numero ",num," esta presente no vetor na posição ",meio)
+				res = verdadeiro
+				pare
+			}
+		}
+		se (res == falso){
+		escreva("O numero ",num," não esta presente no vetor.")	
+		}
+	}
+}

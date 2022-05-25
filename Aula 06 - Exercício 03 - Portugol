@@ -1,5 +1,5 @@
 programa
-{
+{	
 	funcao inicio()
 	{
 		logico achei = falso
@@ -14,17 +14,34 @@ programa
 			para(j = 0; j < 3; j++){
 				se (matriz[i][j] == num){
 					achei = verdadeiro
-					l = i
+					//Colocando a posicao encontrada
+					l = i 
 					c = j
+					//Setando o i e j para sair do laco
 					i = 3
 					j = 3
 				}
 			}	
 		}
 		se (achei == verdadeiro){
-				escreva("O número ",num," foi encontrado na posição [",l," ",c,"] do vetor.\n")
+				escreva("O número ",num," foi encontrado na posição [",l,",",c,"] do vetor.\n")
 		}senao{
-				escreva("O número não existe no vetor!")
+				escreva("O número não existe no vetor!\n")
+		}
+
+		//Solução do Proff
+		para(i = 0; i < 3; i++){
+			para(j = 0; j < 3; j++){
+				se (matriz[i][j] == num){
+					achei = verdadeiro
+					escreva("O número ",num," foi encontrado na posição [",l,",",c,"] do vetor.\n")
+					pare
+				}
+			}	
+		}
+		se (achei == falso){
+			escreva("O número não existe no vetor!\n")
 		}
 	}
 }
+

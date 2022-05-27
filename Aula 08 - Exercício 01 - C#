@@ -12,7 +12,7 @@ peso = Convert.ToSingle(Console.ReadLine());
 Console.Write("Digite sua altura: ");
 altura = Convert.ToSingle(Console.ReadLine());
 Console.WriteLine("============================================");
-Console.Write("Olá, "+nome);
+Console.WriteLine("Olá, "+nome);
 Console.WriteLine("Seu peso é:  "+peso+" Kgs");
 Console.WriteLine("Sua altura é:  "+altura+" metros");
 Console.WriteLine("E sua idade é:  "+idade+" anos");

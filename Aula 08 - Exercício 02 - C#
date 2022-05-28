@@ -1,0 +1,51 @@
+//Exercício 02 - C# - ondicionais
+// if (condicao){} => se
+//if (condicao) {}else{} => se, entao
+//if (condicao 1){}else if(condicao 2){}else{} => se, senao se, entao
+//Ternario - Matematico => argumento 1 != argumento 2 ? "sim" : "nao"
+
+//Algoritimo PAR ou IMPAR
+
+int num=0;
+Console.WriteLine("=============================");
+Console.WriteLine("========CONDICIONAIS=========");
+Console.WriteLine("=============================");
+Console.Write("Digite um número: ");
+num = Convert.ToInt32(Console.ReadLine());
+if (num == 0){
+    Console.WriteLine("=============================");
+    Console.WriteLine("O número digitado é ZERO!");
+    Console.WriteLine("=============================");
+}else if (num % 2 == 0){
+    Console.WriteLine("=============================");
+    Console.WriteLine("O número digitado é PAR!");
+    Console.WriteLine("=============================");
+}else{
+    Console.WriteLine("=============================");
+    Console.WriteLine("O número digitado é ÍMPAR!");
+    Console.WriteLine("=============================");
+}
+//Usando Ternário
+Console.WriteLine("=============================");
+Console.WriteLine(num % 2 == 0 ? "O número digitado é PAR!" : "O número digitado é ÍMPAR!");
+Console.WriteLine("=============================");
+
+//Switch Case
+int opcao;
+Console.WriteLine("Escolha a opcao:");
+Console.WriteLine("=============================");
+opcao = Convert.ToInt32(Console.ReadLine());
+switch(opcao){
+    case 1:
+        Console.WriteLine("Opcao 01");
+    break;
+    case 2:
+        Console.WriteLine("Opcao 02");
+    break;
+    case 3:
+        Console.WriteLine("Opcao 03");
+    break;
+    default: 
+        Console.WriteLine("Não Escolheu Nenhuma");
+    break;
+}

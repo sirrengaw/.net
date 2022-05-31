@@ -1,0 +1,67 @@
+/*
+Laço de repetição - Enquanto
+While (condicao){
+(continua programa)
+}
+
+Laço Para - Enquanto
+For (variavel contadora;condicao;encremento++){
+    (continua programa)
+}
+Do-While - Faça Enquanto
+Do (condicao inicial){
+
+}While(condição){
+    (continua programa)
+}
+
+int numero = 0;
+while(numero <= 5){
+    Console.WriteLine(numero);
+    numero++;
+}
+for (numero=0;numero<=5;numero++){
+     Console.WriteLine(numero);
+}
+numero = 0;
+do{
+    Console.WriteLine(numero);
+    numero++;
+}
+while(numero <= 5);
+
+int num = 0;
+do{
+    Console.WriteLine("Digite um numero: ");
+    num = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("Número digitado: "+num);
+    break;
+}
+while(num != 0);
+
+
+*/
+
+//Sequencia de Fibonacci
+int num=0, a=0, b=0;
+Console.WriteLine("Digite um numero de termos menor que 40 para ver a sequencia de Fibonacci: ");
+num = Convert.ToInt32(Console.ReadLine());
+if(num > 40 || num < 0){
+    Console.WriteLine("Número Incorreto!");
+}else{
+    for (int i = 1; i <= num ; i++){
+			if ( i == 1){
+				a = 1;
+				b = 0;
+			}
+			else{
+				a += b;
+				b = a - b;
+			}
+			if (i != num){
+				Console.Write(a +" , ");
+			}else{
+				Console.Write(a);
+			}
+		}
+}

@@ -1,0 +1,127 @@
+//ALUNO: WAGNER FEDRIGO CAMARGO - CALCULADORA C# - DATA: 02-06-22
+/*
+Construa uma calculadora com C#
+1- O algoritmo deve apresentar um menu solicitando o tipo de operação que o usuário deseja realizar.
+      opções do menu:
+	     1- soma
+             2- subtração
+             3- multiplicação
+             4- divisão
+             6- fatorial
+             7- potenciação
+	     8 - Sair
+2- Ao selecionar a opção da operação que deseja realizar o algoritmo deve solicitar os valores que serão operados.
+3- O algoritmo deve exibir na tela o resultado da operação e retornar para o menu.
+4- O algoritmo só deve finalizar quando o usuário digitar 0.
+
+Para o desenvolvimento do algoritmo é permitido apenas a utilização das estruturas básicas: condicionais, estrutura case e laços de repetição. Não é permitido utilizar funções ou procedimentos.
+
+Para o opção de divisão o algoritmo não deve permitir divisão por 0.
+*/
+int op=-1;
+double n1=0.0,n2=0.0,res=0.0;
+Console.WriteLine("=======================================================================================");
+Console.WriteLine("============================== C A L C U L A D O R A  C # =============================");
+Console.WriteLine("=======================================================================================");
+while(op != 0){
+    Console.WriteLine("=======================================================================================");
+    Console.WriteLine("ESCOLHA NO MENU OQUE DEJEJA CALCULAR :) ");
+    Console.WriteLine("=======================================================================================");
+    Console.WriteLine("1-SOMA | 2-SUBTRAÇÃO | 3-MULTIPLICAÇÃO | 4-DIVISÃO | 5-FATORIAL | 6-POTENCIAÇÃO | 0-SAIR");
+    Console.WriteLine("=======================================================================================");
+op = Convert.ToInt32(Console.ReadLine());
+    switch(op){
+        case 1:
+            Console.WriteLine("=======================================================================================");
+            Console.WriteLine("=================================== S O M A ===========================================");
+            Console.WriteLine("=======================================================================================");
+            Console.Write("Digite o primeiro numero: ");
+            n1 = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Digite o segundo numero: ");
+            n2 = Convert.ToDouble(Console.ReadLine());
+            res = n1 + n2;
+            Console.WriteLine("RESULTADO: "+res);
+            Console.WriteLine("=======================================================================================");
+        break;
+        case 2:
+            Console.WriteLine("=======================================================================================");
+            Console.WriteLine("=============================== S U B T R A Ç Ã O =====================================");
+            Console.WriteLine("=======================================================================================");
+            Console.Write("Digite o primeiro numero: ");
+            n1 = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Digite o segundo numero: ");
+            n2 = Convert.ToDouble(Console.ReadLine());
+            res = n1 - n2;
+            Console.WriteLine("RESULTADO: "+res);
+            Console.WriteLine("=======================================================================================");
+        break;
+        case 3:
+            Console.WriteLine("=======================================================================================");
+            Console.WriteLine("=========================== M U L T I P L I C A Ç Ã O =================================");
+            Console.WriteLine("=======================================================================================");
+            Console.Write("Digite o primeiro numero: ");
+            n1 = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Digite o segundo numero: ");
+            n2 = Convert.ToDouble(Console.ReadLine());
+            res = n1 * n2;
+            Console.WriteLine("RESULTADO: "+res);
+            Console.WriteLine("=======================================================================================");
+        break;
+        case 4:
+            Console.WriteLine("=======================================================================================");
+            Console.WriteLine("=================================== D I V I S Ã O =====================================");
+            Console.WriteLine("=======================================================================================");
+            Console.Write("Digite o primeiro numero: ");
+            n1 = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Digite o segundo numero: ");
+            n2 = Convert.ToDouble(Console.ReadLine());
+            if (n2 == 0){
+                Console.WriteLine("DESCULPE, O NÚMERO DIGITADO NÃO PODE SER ZERO!");
+                Console.WriteLine("=======================================================================================");
+            }else{
+                res = n1 / n2;
+                Console.WriteLine("RESULTADO: "+res);
+                Console.WriteLine("=======================================================================================");
+            }
+        break;
+        case 5:
+            Console.WriteLine("=======================================================================================");
+            Console.WriteLine("=============================== F A T O R I A L =======================================");
+            Console.WriteLine("=======================================================================================");
+            Console.Write("Digite o numero para saber seu fatorial: ");
+            n1 = Convert.ToDouble(Console.ReadLine());
+            double fat = 1;
+            while (n1 != 1)
+            {
+                fat = fat * n1;
+                n1 = n1 - 1;
+            }
+            Console.WriteLine("RESULTADO: "+fat);
+            Console.WriteLine("=======================================================================================");
+        break; 
+        case 6:
+            Console.WriteLine("=======================================================================================");
+            Console.WriteLine("============================== P O T E N C I A Ç Ã O ==================================");
+            Console.WriteLine("=======================================================================================");
+            Console.Write("Digite o primeiro numero (BASE): ");
+            n1 = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Digite o segundo numero (EXPOENTE): ");
+            n2 = Convert.ToDouble(Console.ReadLine());
+            res = Math.Pow(n1, n2);
+            Console.WriteLine("RESULTADO: "+res);
+            Console.WriteLine("=======================================================================================");
+        break;   
+        default:
+            if(op == 0){
+                op = 0;
+            }else{
+                Console.WriteLine("DESCULPE, VOCÊ DIGITOU UMA OPÇÃO INCORRETA, DIGITE NOVAMENTE: ");
+            }
+        break;
+    }
+}
+Console.WriteLine("=======================================================================================");
+Console.WriteLine("========== P R O G R A M A  E N C E R R A D O,  A T É  A  P R Ó X I M A ! =============");
+Console.WriteLine("=======================================================================================");
+Console.WriteLine("============= DESENVOLVIDO POR WAGNER FEDRIGO CAMARGO - 02-02-2022 ====================");
+Console.WriteLine("=======================================================================================");

@@ -1,0 +1,161 @@
+//Aluno: Wagner Fedrigo Camargo
+//Exercicio de Funções - Calculadora C#
+void BannerInicial(){
+    Console.WriteLine("=======================================================================================");
+    Console.WriteLine("============================== C A L C U L A D O R A  C # =============================");
+    Console.WriteLine("=======================================================================================");
+}
+void BannerSoma(){
+    Console.WriteLine("=======================================================================================");
+    Console.WriteLine("=================================== S O M A ===========================================");
+    Console.WriteLine("=======================================================================================");
+}
+void BannerSubtracao(){
+    Console.WriteLine("=======================================================================================");
+    Console.WriteLine("=============================== S U B T R A Ç Ã O =====================================");
+    Console.WriteLine("=======================================================================================");
+}
+void BannerMultiplicacao(){
+    Console.WriteLine("=======================================================================================");
+    Console.WriteLine("=========================== M U L T I P L I C A Ç Ã O =================================");
+     Console.WriteLine("=======================================================================================");
+}
+void BannerDivisao(){
+    Console.WriteLine("=======================================================================================");
+    Console.WriteLine("=============================== F A T O R I A L =======================================");
+    Console.WriteLine("=======================================================================================");
+}
+void BannerPotenciacao(){
+    Console.WriteLine("=======================================================================================");
+    Console.WriteLine("============================== P O T E N C I A Ç Ã O ==================================");
+    Console.WriteLine("=======================================================================================");
+}
+void BannerFatorial(){
+    Console.WriteLine("=======================================================================================");
+    Console.WriteLine("=============================== F A T O R I A L =======================================");
+    Console.WriteLine("=======================================================================================");
+}
+void Menu(){
+    Console.WriteLine("=======================================================================================");
+    Console.WriteLine("ESCOLHA NO MENU OQUE DEJEJA CALCULAR :) ");
+    Console.WriteLine("=======================================================================================");
+    Console.WriteLine("1-SOMA | 2-SUBTRAÇÃO | 3-MULTIPLICAÇÃO | 4-DIVISÃO | 5-FATORIAL | 6-POTENCIAÇÃO | 0-SAIR");
+    Console.WriteLine("=======================================================================================");
+}
+void BannerFinal(){
+    Console.WriteLine("=======================================================================================");
+    Console.WriteLine("========== P R O G R A M A  E N C E R R A D O,  A T É  A  P R Ó X I M A ! =============");
+    Console.WriteLine("=======================================================================================");
+    Console.WriteLine("============= DESENVOLVIDO POR WAGNER FEDRIGO CAMARGO - 02-02-2022 ====================");
+    Console.WriteLine("=======================================================================================");
+}
+void Linha(){
+    Console.WriteLine("=======================================================================================");
+}
+double Somar(double n1, double n2){
+    return (n1 + n2);
+}
+double Subtracao(double n1, double n2){
+    return (n1 - n2);
+}
+double Multiplicacao(double n1, double n2){
+    return (n1 * n2);
+}
+double Divisao(double n1, double n2){
+    return (n1 / n2);
+}
+double Fatorial(double n1){
+    double fat = 1;
+    while (n1 != 1){
+        fat = fat * n1;
+        n1 = n1 - 1;
+    }
+    return fat;
+}
+double Potenciacao(double n1, double n2){
+    double res = 1;
+    for(int i = 1; i <= n2;i++){
+        res *= n1;
+    }
+    return res;
+}
+int op=-1;
+double n1=0.0,n2=0.0,res=0.0;
+BannerInicial();
+while(op != 0){
+    Menu();
+op = Convert.ToInt32(Console.ReadLine());
+    switch(op){
+        case 1:
+            BannerSoma();
+            Console.Write("Digite o primeiro numero: ");
+            n1 = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Digite o segundo numero: ");
+            n2 = Convert.ToDouble(Console.ReadLine());
+            res = Somar(n1,n2);
+            Console.WriteLine("RESULTADO: "+res);
+            Linha();
+        break;
+        case 2:
+            BannerSubtracao();
+            Console.Write("Digite o primeiro numero: ");
+            n1 = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Digite o segundo numero: ");
+            n2 = Convert.ToDouble(Console.ReadLine());
+            res = Subtracao(n1,n2);
+            Console.WriteLine("RESULTADO: "+res);
+            Linha();
+        break;
+        case 3:
+            BannerMultiplicacao();
+            Console.Write("Digite o primeiro numero: ");
+            n1 = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Digite o segundo numero: ");
+            n2 = Convert.ToDouble(Console.ReadLine());
+            res = Multiplicacao(n1,n2);
+            Console.WriteLine("RESULTADO: "+res);
+            Linha();
+        break;
+        case 4:
+            BannerDivisao();
+            Console.Write("Digite o primeiro numero: ");
+            n1 = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Digite o segundo numero: ");
+            n2 = Convert.ToDouble(Console.ReadLine());
+            if (n2 == 0){
+                Console.WriteLine("DESCULPE, O NÚMERO DIGITADO NÃO PODE SER ZERO!");
+                Linha();
+            }else{
+                res = Divisao(n1,n2);
+                Console.WriteLine("RESULTADO: "+res);
+                Linha();
+            }
+        break;
+        case 5:
+            BannerFatorial();
+            Console.Write("Digite o numero para saber seu fatorial: ");
+            n1 = Convert.ToDouble(Console.ReadLine());
+            res = Fatorial(n1);
+            Console.WriteLine("RESULTADO: "+res);
+            Linha();
+        break; 
+        case 6:
+            BannerPotenciacao();
+            Console.Write("Digite o primeiro numero (BASE): ");
+            n1 = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Digite o segundo numero (EXPOENTE): ");
+            n2 = Convert.ToDouble(Console.ReadLine());
+            res = Potenciacao(n1,n2);
+            Console.WriteLine("RESULTADO: "+res);
+            Linha();
+        break;   
+        default:
+            if(op == 0){
+                op = 0;
+            }else{
+                Console.WriteLine("DESCULPE, VOCÊ DIGITOU UMA OPÇÃO INCORRETA, DIGITE NOVAMENTE: ");
+            }
+        break;
+    }
+}
+BannerFinal();

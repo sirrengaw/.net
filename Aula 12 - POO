@@ -1,0 +1,85 @@
+// Program
+
+/*
+//Instancia Objeto c1 do tipo Celular
+Celular c1 = new Celular();
+Celular c2 = new Celular();
+//Define os atributos do novo objeto criado.
+c1.cor = "azul";
+c1.tamTela = 8;
+c1.armazenamento=128;
+c1.numCameras=2;
+c1.processador="Snap Dragon 888";
+c1.bateria = 50;
+c1.ligado=true;
+
+c2.ligado=false;
+
+c1.telefonar();
+c2.telefonar();
+c1.mostrarBateria();
+c1.carregar();
+c1.mostrar();
+*/
+
+Violao v1 = new Violao();
+v1.marca = "Takamine";
+v1.cor = "Preto";
+v1.tipoCorda = "Aço";
+v1.afinacao = "E";
+v1.valor = 2500.00;
+
+v1.mostrar();
+v1.trocarAfinacao();
+v1.mostrar();
+for (int i = 0 ; i<10;i++){
+    v1.tocar();
+}
+v1.tocar();
+v1.mostrar();
+v1.afinar();
+v1.mostrar();
+
+
+//Classe Violão
+    public class Violao
+    {
+        //Atributos - Caracteristicas
+        public string marca="";
+        public string cor="";
+        public string tipoCorda="";
+        public string afinacao="";
+        public double valor;
+        public int vlrAfinacao=10;
+
+        ///Métodos - Comportamentos do Objeto
+        public void mostrar(){
+            Console.WriteLine("==== Informações do Violão ====");
+            Console.WriteLine("Marca: "+this.marca);
+            Console.WriteLine("Cor: "+this.cor);
+            Console.WriteLine("Tipo de Corda: "+this.tipoCorda);
+            Console.WriteLine("Afinação Atual: "+this.afinacao);
+            Console.WriteLine("Valor R$: "+this.valor);
+            Console.WriteLine("===============================");
+        }
+        public void trocarAfinacao(){
+            Console.WriteLine("TROCAR AFINAÇÃO");
+            Console.WriteLine("Afinação Atual: "+this.afinacao);
+            Console.WriteLine("Qual afinação deseja alterar o instrumento?");
+            this.afinacao = Console.ReadLine();
+            Console.WriteLine("Afinação Alterada com sucesso!");
+            Console.WriteLine("A nova afinação é: "+this.afinacao);
+        }
+        public void tocar(){
+            this.vlrAfinacao-=1;
+            if(this.vlrAfinacao<=0){
+                Console.WriteLine("O violão está desafinado. . .");
+                this.afinacao = "Desafinado";  
+            } else{
+                Console.WriteLine("Tocando o violão. . .");
+            }         
+        }
+        public void afinar(){
+            this.trocarAfinacao();
+        }
+    }

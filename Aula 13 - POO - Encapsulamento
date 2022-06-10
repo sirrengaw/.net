@@ -1,0 +1,70 @@
+//Program.cs
+//POO - Aula 13 - 07-06-2022
+Baralho b1 = new Baralho("Copag","Poker Size","Vermelho");
+b1.mostrar();
+b1.jogarTruco();
+b1.embaralhar();
+b1.abrir();
+b1.jogarTruco();
+b1.embaralhar();
+b1.jogarTruco();
+b1.abrir();
+b1.jogarTruco();
+b1.embaralhar();
+b1.jogarTruco();
+
+//Classe Baralho
+public class Baralho{
+    public int numCartas { get; set; }
+    public string marca { get; set; } = "";
+    public string formato { get; set; } = "";
+    public string cor { get; set; } = "";
+    public bool embaralhado { get; set; }
+    public bool novo { get; set; }
+// Método Construtor
+public Baralho(string marca, string formato, string cor) : this() //Definiu como contrutor padrao.
+{
+    this.numCartas = 54;
+    this.marca = marca;
+    this.formato = formato;
+    this.cor = cor;    
+    this.embaralhado = false;
+    this.novo = true;        
+}
+public Baralho(){} //Construtor Vazio
+public void mostrar(){
+    Console.WriteLine("= Baralho =");
+    Console.WriteLine("Número de Cartas: "+this.numCartas);
+    Console.WriteLine("Marca: "+this.marca);
+    Console.WriteLine("Formato: "+this.formato);
+    Console.WriteLine("Cor: "+this.cor);
+    Console.Write("Está Embaralhado? : ");
+    Console.WriteLine(this.embaralhado ? "Sim" : "Não");
+    Console.Write("É Novo? : ");
+    Console.WriteLine(this.novo ? "Sim" : "Não");
+}
+public void jogarTruco(){
+    if(this.embaralhado){
+        this.embaralhado = false;
+        Console.WriteLine("Você pode dar as cartas! Bom jogo!");
+    }else{
+        Console.WriteLine("Você precisa embaralhar as cartas primeiro!");
+    }
+}
+public void abrir(){
+    if(!this.novo){
+        Console.WriteLine("O baralho foi aberto!");
+    }else{
+        this.novo = false;
+        Console.WriteLine("Abrindo...");
+    }
+}
+public void embaralhar(){
+    if(this.novo == true){
+        Console.WriteLine("Abra o baralho primeiro!");
+    }else{
+        this.embaralhado = true;
+        Console.WriteLine("Embaralhando. . .");
+    }
+}
+}

@@ -1,0 +1,248 @@
+Arquivo - IAutomovel.cs
+/*
+    REGRAS DAS INTERFACES
+
+    1- METODOS DE INTERFACES NÃO TEM CORPO, APENAS ASSINATURA DE METODOS ABSTRATOS
+    2- INTERFACE NÃO TEM ATRIBUTOS NEM CONSTRUTORES
+    3- OS METODOS DEVEM SER PUBLICOS
+    4- AS CLASSES DERIVADAS DA INTEFACE DEVEM IMPLEMENTAR TODOS OS METODOS 
+    5- NÃO TEM COMO INSTANCIAR UMA INTERFACE
+
+*/
+/*
+                            ACELERAR
+                            FREIAR
+                            ABASTECER
+                            LIGAR
+                            DESLIGAR
+*/
+
+public interface IAutomovel{
+
+    public abstract void Acelerar();
+    public abstract void Freiar();
+    public abstract void Abastecer(float valor);
+    public abstract void MostrarTanque();
+    public abstract void Ligar();
+    public abstract void Desligar();
+}
+
+Arquivo - Automovel.cs
+/*
+                            MARCAR
+                            COR 
+                            LIGADO
+                            TANQUE
+                            COMBUSTIVEL
+                            TipoCombustivel*/
+
+public abstract class Automovel : IAutomovel
+{
+    public string? marca { get; set; }="";
+    public string? cor { get; set; }="";
+    public bool ligado { get; set; }
+    public float combustivel { get; set; }
+    public int  capTanque { get; set; }
+    public string? tipoComb { get; set; }="";
+    public int velocidade {get; set;}
+
+    public Automovel(string marca, string cor, float combustivel, int capTanque, string tipoComb)
+    {
+        this.marca = marca;
+        this.cor = cor;
+        this.combustivel = combustivel;//quanto tem no tanque
+        this.capTanque  = capTanque;//capacidade total do tanque
+        this.tipoComb = tipoComb; //etanol...
+        this.ligado = false; 
+        this.velocidade = 0;    
+    }
+    public void Abastecer(float valor)
+    {
+        int tc = 0;
+        float quantAbastecida=0;
+        float quantComprada=0;
+        float quantDisponivel=0;
+        float vlrComb = 0;
+        float troco = 0;
+        //PERGUNTAR O TIPO COMBUSTIVEL
+        do{
+        Console.WriteLine("Informe o tipo de combustível: (1-Etanol | 2-Gasolina | 3-Diesel | 4-GNV)");
+        tc = Convert.ToInt32(Console.ReadLine());
+            if (tc == 1){
+                this.tipoComb = "Etanol";
+                vlrComb = 5f;
+            }else if(tc == 2){
+                this.tipoComb = "Gasolina";
+                vlrComb = 7f;
+            }else if(tc == 3){
+                this.tipoComb = "Diesel";
+                vlrComb = 6.8f;
+            }else if(tc == 4){
+                this.tipoComb = "GNV";
+                vlrComb = 3f;
+            }else{
+                Console.WriteLine("Opção Inválida, digite novamente.");
+            }
+        }while(tc < 1 && tc > 4);
+        
+        //QUANTO A PESSOA QUER ABASTERCER
+        //VERIFICAR SE O TANQUE ESTA CHEIO
+        if(this.combustivel == this.capTanque){
+            Console.WriteLine("Tanque Cheio!");
+        }else{
+            quantDisponivel = this.capTanque - this.combustivel;
+            quantComprada = valor / vlrComb;
+            
+            if (quantDisponivel > quantComprada){
+                quantAbastecida = quantComprada;
+                this.combustivel = quantAbastecida;
+            }else{
+                quantAbastecida = quantDisponivel;
+                this.combustivel = quantAbastecida;
+                troco = valor - (quantAbastecida * vlrComb);
+            }
+        }
+        //ATRIBUIR O VALOR AO ATRIBUTO COMBUSTIVEL
+        this.combustivel = quantAbastecida;
+        //MOSTRAR QUANTOS LITROS FORAM ABSTECIDOS 
+        Console.WriteLine("Foram abastecidos: "+quantAbastecida+"Litros e teve R$ "+troco+" de troco.");
+    }
+    public virtual void Acelerar(){
+        Console.WriteLine("Acelerando o Veículo...");//Metodo Genérico
+    }
+    public void Desligar()
+    {
+        if(this.ligado){
+        Console.WriteLine("Desligando o Veículo...");
+        this.ligado = false;
+        }else{
+        Console.WriteLine("O Veículo já está desligado!");   
+        }
+    }
+    public abstract void Freiar();
+    public void Ligar()
+    {
+        if(!this.ligado){
+        Console.WriteLine("Ligando o Veículo...");
+        this.ligado = true;
+        }else{
+        Console.WriteLine("O Veículo já está ligado!");   
+        }
+    }
+    public void MostrarTanque()
+    {
+        //MOSTRAR QUANTOS LITROS DO COMBUSTIVEL TEM NO TANQUE
+        Console.WriteLine("O tanque de combustível está com: "+this.combustivel+" Litros.");
+    }
+}
+
+Arquivo - Carro.cs
+//SOBREESCREVER O METODO ACELERAR 
+//SOBREESCREVER O METODO FREIAR  
+public class Carro : Automovel
+{
+
+    public int  numPorta { get; set; }
+    public int capPortaMala { get; set; }
+    public Carro(string marca, string cor, float combustivel, int capTanque, string tipoComb, int numPorta, int capPortaMala) : base(marca, cor, combustivel, capTanque, tipoComb)
+    {
+        this.numPorta = numPorta;
+        this.capPortaMala = capPortaMala;
+    }
+public override void Freiar()
+    {
+        //MOSTRAR QUE ESTA FREIANDO
+        //DIMINUIR UMA VALOR X DA VELOCIDADE
+        
+        if (this.velocidade > 0){
+        Console.WriteLine("Freiando o Carro...");
+        this.velocidade -=10;
+        }else{
+            //SE A VELOCIDADE CHEGAR 0 AVISAR QUE O CARRO ESTA PARADA 
+            Console.WriteLine("O Carro está parado!");
+        }
+    }
+public override void Acelerar(){
+    if(this.ligado){
+           //METODO GENERICO
+        //SOBRESCREVER NA CLASSE CARRO E NA MOTO
+        // ESCREVAR NA TELA QUE ESTA ACELERANDO
+        if(this.combustivel <= 0){
+        Console.WriteLine("Carro sem gasolina!");
+        this.combustivel=0;
+        }else{
+            this.combustivel-=5;
+            Console.WriteLine("Acelerando o carro. . . ");
+            this.velocidade +=10;
+            // CADA VEZ QUE ACELERA MOSTRA A VELOCIDADE
+            Console.WriteLine("A velocidade do carro está em: "+this.velocidade+" Km/H");
+            // CONSOME UM VALOR DO COMBUSTIVEL DIFERENTE PARA MOTO E PARA O CARRO
+            }
+        // NAO PODE ACELERAR COM O CARRO DESLIGADO
+        // AVISAR SE ACABOU A GASOLINA
+        }else{
+            Console.WriteLine("O carro está desligado.");
+        }
+}
+}
+
+Arquivo - Moto.cs
+//SOBREESCREVER O METODO ACELERAR 
+//SOBREESCREVER O METODO FREIAR  
+public class Moto : Automovel
+{
+
+    public int cilindradas { get; set; }
+    public Moto(string marca, string cor, float combustivel, int capTanque, string tipoComb, int cili) : base(marca, cor, combustivel, capTanque, tipoComb)
+    {
+        this.cilindradas = cili;
+    }
+    public override void Freiar()
+    {
+        //MOSTRAR QUE ESTA FREIANDO
+            Console.WriteLine("Freiando a Moto...");
+        //DIMINUIR UMA VALOR X DA VELOCIDADE
+        if (this.velocidade > 0){
+        this.velocidade -=5;
+        }else{
+            //SE A VELOCIDADE CHEGAR 0 AVISAR QUE O CARRO ESTA PARADA 
+            Console.WriteLine("A Moto está parada!");
+        }
+    }
+    public override void Acelerar(){
+    if(this.ligado){
+           //METODO GENERICO
+        //SOBRESCREVER NA CLASSE CARRO E NA MOTO
+        // ESCREVAR NA TELA QUE ESTA ACELERANDO
+        Console.WriteLine("Acelerando a moto. . . ");
+        this.velocidade +=20;
+        // CADA VEZ QUE ACELERA MOSTRA A VELOCIDADE
+        Console.WriteLine("A velocidade da moto está em: "+this.velocidade+" Km/H");
+        // CONSOME UM VALOR DO COMBUSTIVEL DIFERENTE PARA MOTO E PARA O CARRO
+        if(this.combustivel == 0){
+        Console.WriteLine("Moto sem gasolina!");
+        }else{
+        this.combustivel-=3;
+        }
+        // NAO PODE ACELERAR COM O CARRO DESLIGADO
+        // AVISAR SE ACABOU A GASOLIN
+        }else{
+            Console.WriteLine("A moto está desligado.");
+        }
+}
+}
+Arquivo - Program.cs
+Carro c1 = new Carro("GM","Prata",4,54,"Etanol",4,420);
+c1.Ligar();
+c1.Ligar();
+c1.Desligar();
+c1.Desligar();
+c1.Acelerar();
+c1.Ligar();
+c1.Acelerar();
+c1.Acelerar();
+c1.Freiar();
+c1.Freiar();
+c1.Freiar();
+c1.MostrarTanque();
+c1.Abastecer(100);
